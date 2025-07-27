@@ -5,11 +5,11 @@
   padding: 0;
 }
 
-body {
+#body1{
   background-color: #f6f5f7;
   height: 100vh;
   display: flex;
-  justify-content: center;
+ justify-content: center;
   align-items: center;
 }
 

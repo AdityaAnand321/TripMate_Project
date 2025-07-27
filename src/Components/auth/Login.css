@@ -1,4 +1,4 @@
-/* Reset */
+Reset
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +6,13 @@
   font-family: Arial, sans-serif;
 }
 
-body {
+.loginbody {
   background-color: rgb(247, 245, 245);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} 
 
 .container {
   max-width: 800px;

@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Components/auth/Login";
 import Signup from "../Components/auth/Signup";
 import About from "../Pages/About/About";
+import Dashboard from "../Pages/Home/Dashboard";
 
  
 const appRouter = createBrowserRouter([
@@ -18,6 +19,11 @@ const appRouter = createBrowserRouter([
     element: <Login />,
     title: ROUTES_CONFIG.LOGIN.title,
   },
+  // {
+  //   path: '',
+  //   element: <Dashboard />,
+  //   title: ROUTES_CONFIG.DASHBOARD.title,
+  // },
   {
     path: ROUTES.SIGNUP,
     element: <Signup />,

@@ -5,6 +5,7 @@ const ROUTES = {
   LOGIN: '/login',
   ABOUT: '/about',
   SIGNUP: '/signup',
+  DASHBOARD: '/dashboard',
 };
 
 const ROUTES_CONFIG = {
