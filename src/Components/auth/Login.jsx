@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import Dashboard from '../../Pages/Home/Dashboard';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //import {Signup} from './Signup';
 
 export default function Login(){
@@ -21,9 +24,13 @@ export default function Login(){
 
     const savedUser=JSON.parse(localStorage.getItem('user'));
 
-    if(email===savedUser.email && password===savedUser.password){
+    if(savedUser &&(email===savedUser.email && password===savedUser.password)){
+      savedUser.isLogged = "true";
+      localStorage.setItem("user", JSON.stringify(savedUser));
       navigate('/');
+
     }else{
+      toast.error("Invalid Email or Password");
       setErrorMsg('Invalid email or password');
     }
   };

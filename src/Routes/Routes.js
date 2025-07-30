@@ -1,33 +1,26 @@
 
 
-const ROUTES = {
-  HOMEPAGE: '/',
-  LOGIN: '/login',
-  ABOUT: '/about',
-  SIGNUP: '/signup',
-  DASHBOARD: '/dashboard',
-};
+ 
 
-const ROUTES_CONFIG = {
+const ROUTES = {
   HOMEPAGE: {
-    path: ROUTES.HOMEPAGE,
+    path: '/',
     title: 'Home',
   },
   LOGIN: {
-    path: ROUTES.LOGIN,
+    path: '/login',
     title: 'Login',
   },
  
   ABOUT: {
-    path: ROUTES.ABOUT,
+    path: '/about',
     title: 'About us',
   },
   SIGNUP: {
-    path: ROUTES.SIGNUP,
+    path: '/signup',
     title: 'Signup',
   },
 };
 export {
   ROUTES,
-  ROUTES_CONFIG,
-};
+ };

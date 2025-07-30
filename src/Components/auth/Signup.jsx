@@ -1,7 +1,8 @@
 import './Signup.css';
 import { useNavigate } from 'react-router';
 import {useState} from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup(){
 
@@ -13,6 +14,7 @@ export default function Signup(){
   const[name,setName]=useState('');
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
+  const[isLogged,LoggedIn]=useState('false');
 
 const handleSignup=(e)=>{
   e.preventDefault();//isse form submit hone pe page reload nahi hoga
@@ -21,9 +23,10 @@ const handleSignup=(e)=>{
     name: name,
     email: email,
     password: password,
+    isLogged:"false",
   };
   localStorage.setItem('user', JSON.stringify(userData));
-  alert("Signup successful! You can now login.");
+  toast.success("Signup successful! You can now login.");
   navigate('/login');  
   
 }

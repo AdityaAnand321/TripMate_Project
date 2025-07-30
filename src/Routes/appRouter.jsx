@@ -1,38 +1,32 @@
 import { createBrowserRouter } from "react-router";
-import { ROUTES, ROUTES_CONFIG } from "./Routes";
+import { ROUTES } from "./Routes";
 
 import Home from "../Pages/Home/Home";
 import Login from "../Components/auth/Login";
 import Signup from "../Components/auth/Signup";
 import About from "../Pages/About/About";
-import Dashboard from "../Pages/Home/Dashboard";
-
+ 
  
 const appRouter = createBrowserRouter([
   {
-    path: ROUTES.HOMEPAGE,
+    path: ROUTES.HOMEPAGE.path,
     element: <Home />,
-    title: ROUTES_CONFIG.HOMEPAGE.title,
+    title: ROUTES.HOMEPAGE.title,
   },
   {
-    path: ROUTES.LOGIN,
+    path: ROUTES.LOGIN.path,
     element: <Login />,
-    title: ROUTES_CONFIG.LOGIN.title,
+    title: ROUTES.LOGIN.title,
   },
-  // {
-  //   path: '',
-  //   element: <Dashboard />,
-  //   title: ROUTES_CONFIG.DASHBOARD.title,
-  // },
   {
-    path: ROUTES.SIGNUP,
+    path: ROUTES.SIGNUP.path,
     element: <Signup />,
-    title: ROUTES_CONFIG.SIGNUP.title,
+    title: ROUTES.SIGNUP.title,
   },
   {
-    path: ROUTES.ABOUT,
+    path: ROUTES.ABOUT.path,
     element: <About />,
-    title: ROUTES_CONFIG.ABOUT.title,
+    title: ROUTES.ABOUT.title,
   },
 ]);
 
