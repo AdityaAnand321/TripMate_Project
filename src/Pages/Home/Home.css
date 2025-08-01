@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-background: linear-gradient(to right, #d36982, #413d3c);
+  background: linear-gradient(to right, #d36982, #413d3c);
   color: #fff;
   padding: 15px 20px;
   position:fixed;
@@ -38,13 +38,13 @@ background: linear-gradient(to right, #d36982, #413d3c);
 }
 
 .sidebar1 {
-  width: 200px;
+width: 200px;
 background: linear-gradient(to right, #984c5e, #ff4b2b);
-  color: white;
-  position: fixed;
-  top: 60px;
-  bottom: 0;
-  padding-top: 20px;
+color: white;
+position: fixed;
+top: 60px;
+bottom: 0;
+padding-top: 20px;
 }
 
 .sidebar1 a {
@@ -134,7 +134,6 @@ gap:10px;
   font-size:14px;
   color: rgb(74, 74, 74);
   font-family: 'Lato, sans-serif';
-  
   background-color: rgb(249, 249, 249);
   padding: 12px 16px;
 }

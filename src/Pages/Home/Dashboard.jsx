@@ -1,13 +1,13 @@
 import React from 'react'
-import { ROUTES } from '../../Routes/Routes';
+import Home from './Home.jsx';
+import { useNavigate } from 'react-router';
 
 const Dashboard = () => {
+const navigate=useNavigate();
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to your dashboard!</p>
-    </div>
-  )
+    navigate('/')
+  );
 }
- 
-export default Dashboard; 
+
+export default Dashboard

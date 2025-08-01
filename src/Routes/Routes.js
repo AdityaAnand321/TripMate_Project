@@ -20,6 +20,10 @@ const ROUTES = {
     path: '/signup',
     title: 'Signup',
   },
+  PROFILE:{
+      path:'/profile',
+      title:'/Profile',
+  },
 };
 export {
   ROUTES,
