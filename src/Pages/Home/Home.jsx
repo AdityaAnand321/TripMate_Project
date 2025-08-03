@@ -4,6 +4,7 @@ import './Home.css';
 import place from '../../Api/detail';
 import { Outlet} from 'react-router';
 import { useLocation} from 'react-router';
+import logo from '../../assets/icon/logo.jpeg';
 
 export default function Home() {
   const user=JSON.parse(localStorage.getItem('user'));
@@ -14,11 +15,20 @@ export default function Home() {
     <div>
       
        <div className="header1">
-      <h1>My Dashboard</h1>
+      <Link to="/dashboard">{<img src={logo} alt="" style={{height:'50px'}}/>}</Link>
+      <div className='headbtn'>
+      <Link to="/profile">Profile</Link>
+      <Link to="/favourite">Favourite</Link>
+      <Link to="/settings">Setting</Link>
+      <Link>Offers</Link>
+      <Link>Customer Service</Link>
+      </div>
+      <input type="search" style={{padding:'5 px', width:'300px'}} placeholder='Search for trips'/>
+       
       <div className="auth-buttons1">
         {user && user.isLogged === "true" ? (
           <>
-            <span>Welcome, {user.name}</span>
+            <span style={{color:'black'}}>Welcome, {user.name}</span>
             <button
               onClick={() => {
                 // logout button bhi ho to
@@ -47,10 +57,10 @@ export default function Home() {
     </div>
   
       <div className="sidebar1">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/favourite">Favourite</Link>
-        <Link to="/settings">Setting</Link>
+        <Link to="/dashboard">Filter Trips</Link>
+        
+        
+        
       </div>
 
   
