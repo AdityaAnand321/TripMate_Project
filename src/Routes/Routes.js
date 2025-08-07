@@ -24,6 +24,10 @@ const ROUTES = {
       path:'/profile',
       title:'/Profile',
   },
+  DETAILS:{
+    path:'/details/:id',
+    title:'/Details',
+  },
 };
 export {
   ROUTES,

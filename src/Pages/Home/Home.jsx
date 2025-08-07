@@ -5,11 +5,19 @@ import place from '../../Api/detail';
 import { Outlet} from 'react-router';
 import { useLocation} from 'react-router';
 import logo from '../../assets/icon/logo.jpeg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavourite } from '../../redux/favouritesSlice';  // correct path lagao
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
 
 export default function Home() {
   const user=JSON.parse(localStorage.getItem('user'));
   const json=place;
  const location = useLocation();
+ const navigate=useNavigate();
+
   return (
     
     <div>
@@ -67,8 +75,15 @@ export default function Home() {
       <div className="main-content1">
   {location.pathname === '/' || location.pathname === '/home' || location.pathname === '/dashboard' ? (
     <>
-      {json.map((value) => (
-        <div className="card1" key={value.id}>
+    
+      {json.map((value) => ( 
+          
+        <div className="card1" key={value.id} onClick={()=>navigate(`/details/${value.id}`)}>
+
+          <div className="fav-icon">
+              <FontAwesomeIcon icon={regularHeart} style={{ color: 'gray' }} />
+          </div>
+
           <img className='img1' src={value.image} alt={value.name} width="200" />
           <br />
           <div style={{ padding: '10px' }}>
@@ -93,11 +108,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+      
       ))}
-
-      <div className="card1">
-        <img src="src/assets/icon/image/mn.jpg" alt="Example" width="200" />
-      </div>
     </>
   ) : (
     <Outlet />

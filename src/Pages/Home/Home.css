@@ -16,6 +16,7 @@ body {
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
+  z-index: 1000;
 }
 
 .header1 h1 {
@@ -66,6 +67,7 @@ margin-left: 200px;
 margin-top:5px;
 padding: 20px;
 gap:10px;
+z-index: 1;
 }
 
 .card1 {
@@ -76,7 +78,14 @@ gap:10px;
   box-shadow: 0 0 5px rgba(219, 22, 22, 0.1);
   margin-bottom: 20px;
   gap:5px;
+  position:relative;
   
+}
+
+.card1:hover{
+  cursor: pointer;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+   
 }
 
 .det{
@@ -166,4 +175,12 @@ gap:10px;
     font-size: 13px;     /* ✅ Smaller font */
     padding: 6px 10px;   /* ✅ Less padding */
   }
+}
+.fav-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
 }

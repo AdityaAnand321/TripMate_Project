@@ -1,5 +1,6 @@
-const place=[
+const place = [
   {
+    "id": "taj-mahal",
     "name": "Taj Mahal",
     "state": "Uttar Pradesh",
     "city": "Agra",
@@ -19,6 +20,7 @@ const place=[
     }
   },
   {
+    "id": "amber-fort",
     "name": "Amber Fort",
     "state": "Rajasthan",
     "city": "Jaipur",
@@ -37,6 +39,7 @@ const place=[
     }
   },
   {
+    "id": "palolem-beach",
     "name": "Palolem Beach",
     "state": "Goa",
     "city": "Canacona",
@@ -55,6 +58,7 @@ const place=[
     }
   },
   {
+    "id": "alleppey-backwaters",
     "name": "Alleppey Backwaters",
     "state": "Kerala",
     "city": "Alappuzha",
@@ -72,6 +76,7 @@ const place=[
     }
   },
   {
+    "id": "dashashwamedh-ghat",
     "name": "Dashashwamedh Ghat",
     "state": "Uttar Pradesh",
     "city": "Varanasi",
@@ -89,6 +94,7 @@ const place=[
     }
   },
   {
+    "id": "pangong-lake",
     "name": "Pangong Lake",
     "state": "Ladakh",
     "city": "Leh",
@@ -106,6 +112,7 @@ const place=[
     }
   },
   {
+    "id": "mysore-palace",
     "name": "Mysore Palace",
     "state": "Karnataka",
     "city": "Mysuru",
@@ -123,6 +130,7 @@ const place=[
     }
   },
   {
+    "id": "radhanagar-beach",
     "name": "Radhanagar Beach",
     "state": "Andaman & Nicobar",
     "city": "Havelock Island",
@@ -140,6 +148,7 @@ const place=[
     }
   },
   {
+    "id": "the-ridge",
     "name": "The Ridge",
     "state": "Himachal Pradesh",
     "city": "Shimla",
@@ -157,6 +166,7 @@ const place=[
     }
   },
   {
+    "id": "white-rann",
     "name": "White Rann",
     "state": "Gujarat",
     "city": "Kutch",
@@ -173,6 +183,9 @@ const place=[
       "totalCost": "₹55,000"
     }
   }
-]
+].map(item => ({
+  ...item,
+  id: item.name.toLowerCase().replace(/\s+/g, '-')
+}));
 
 export default place;

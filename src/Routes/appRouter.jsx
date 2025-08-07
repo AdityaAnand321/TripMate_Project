@@ -8,7 +8,7 @@ import Profile from "../Pages/Home/Profile";
 import Favourite from "../Pages/Home/Favourite";
 import Setting from "../Pages/Home/Setting";
 import Dashboard from "../Pages/Home/Dashboard";
-
+import Details from "../Pages/Home/Details";
 const appRouter = createBrowserRouter([
   {
     path: ROUTES.HOMEPAGE.path,
@@ -37,6 +37,11 @@ const appRouter = createBrowserRouter([
     path: ROUTES.ABOUT.path,
     element: <About />,
     title: ROUTES.ABOUT.title,
+  },
+  {
+    path:ROUTES.DETAILS.path,
+    element:<Details/>,
+    title:ROUTES.DETAILS.title,
   },
 ]);
 
