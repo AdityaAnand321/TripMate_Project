@@ -1,72 +1,172 @@
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import place from '../../Api/detail';
+import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaTags, FaStar, FaUmbrellaBeach, FaWater, FaFish, FaUtensils, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import './Details.css';
+
 export default function Details() {
   const { id } = useParams();
-  const json=place;
-  const dest = json.find(place => place.id === id);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-   
+  useEffect(() => {
+    try {
+      // Simulate API call with timeout
+      setLoading(true);
+      setTimeout(() => {
+        const result = place.find(place => place.id === id);
+        if (result) {
+          setData(result);
+        } else {
+          setError(`Destination with ID "${id}" not found`);
+        }
+        setLoading(false);
+      }, 800);
+    } catch (err) {
+      setError('Failed to load destination details');
+      setLoading(false);
+    }
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="beach-loader">
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="sand"></div>
+          <div className="palm-tree">
+            <div className="trunk"></div>
+            <div className="leaves"></div>
+          </div>
+          <p>Loading paradise details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <div className="error-card">
+          <FaExclamationTriangle className="error-icon" />
+          <h2>Destination Not Found</h2>
+          <p>{error}</p>
+          <p>We couldn't find the paradise you're looking for.</p>
+          <button className="home-btn" onClick={() => window.location.href = '/'}>
+            Return to Beaches
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div>
-     <h1>{dest.name},{dest.state}</h1> 
-     <p>{dest.package.duration}</p>
-    <img src={dest.image} alt={dest.name} />
-
-  
-    <div className="payment-card">
-      {/* Price Section */}
-      <div className="price-section">
-        <div className="original-price">{dest.package.totalCost} <span className="discount">5% OFF</span></div>
-        <div className="final-price">₹8,934<span className="per-adult">/Adult</span></div>
-        <div className="tax-note">Excluding applicable taxes</div>
+    <div className="beach-details-container">
+      {/* Hero Section */}
+      <div className="hero-section" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${data.image})`}}>
+        <div className="hero-content">
+          <h1><FaUmbrellaBeach /> {data.name}</h1>
+          <div className="location-rating">
+            <div className="location">
+              <FaMapMarkerAlt /> {data.city}, {data.state}
+            </div>
+            <div className="rating">
+              <FaStar /><FaStar /><FaStar /><FaStar /><FaStar /> 4.9
+            </div>
+          </div>
+          <div className="hero-tag">{data.city} Best Location</div>
+        </div>
       </div>
 
-      {/* Button */}
-      <button className="payment-button">PROCEED TO PAYMENT</button>
+      {/* Main Content */}
+      <div className="content-wrapper">
+        <div className="description-section">
+          <div className="section-header">
+            <div className="icon-circle">
+              <FaWater />
+            </div>
+            <h2>About this Paradise</h2>
+          </div>
+          <p className="description-text">{data.description}</p>
+          <p className="additional-info">
+            Nestled on Havelock Island, Radhanagar Beach boasts over 2 kilometers of pristine white sand 
+            and crystal-clear turquoise waters. This award-winning destination offers the perfect tropical 
+            escape with stunning sunsets, vibrant marine life, and lush surrounding greenery.
+          </p>
 
-      {/* Coupons & Offers */}
-      <div className="offers-section">
-        <h3>Coupons & Offers</h3>
-
-        {/* EMI Offer */}
-        <div className="emi-offer">
-          <span className="emi-icon">💳</span>
-          <div>
-            <p className="emi-title">No cost EMI @ ₹2,978</p>
-            <p className="emi-subtitle">Book your holidays with Easy <a href="#">EMI options</a>.</p>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon">
+                <FaWater />
+              </div>
+              <h3>Crystal Waters</h3>
+              <p>Perfect for swimming & snorkeling</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+                <FaFish />
+              </div>
+              <h3>Marine Life</h3>
+              <p>Vibrant coral reefs & tropical fish</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+                <FaUtensils />
+              </div>
+              <h3>Beach Dining</h3>
+              <p>Fresh seafood & tropical cocktails</p>
+            </div>
           </div>
         </div>
 
-        {/* Coupon input */}
-        <div className="coupon-input">
-          <p>Have a Coupon Code?</p>
-          <button className="enter-code">Enter Code</button>
-        </div>
-
-        {/* Applied Coupon */}
-        <div className="applied-coupon">
-          <div>
-            <p className="coupon-title">🎉 SALESPECIAL <span className="coupon-discount">- ₹448</span></p>
-            <p className="coupon-subtitle">Coupon Applied Successfully!</p>
+        {/* Package Details */}
+        <div className="package-section">
+          <div className="section-header">
+            <div className="icon-circle">
+              <FaTags />
+            </div>
+            <h2>Package Details</h2>
           </div>
-          <button className="remove-btn">REMOVE</button>
+
+          <div className="package-card">
+            <div className="package-header">
+              <div className="duration">
+                <FaCalendarAlt /> {data.package.duration}
+              </div>
+              <div className="price1">{data.package.totalCost}</div>
+            </div>
+
+            <div className="inclusions">
+              <h3>What's Included</h3>
+              <ul>
+                {data.package.inclusions.map((item, index) => (
+                  <li key={index}>
+                    <FaCheckCircle /> {item}
+                  </li>
+                ))}
+                <li><FaCheckCircle /> Sunset Cruise</li>
+                <li><FaCheckCircle /> Snorkeling Equipment</li>
+              </ul>
+            </div>
+
+            <div className="emi-section">
+              <FaMoneyBillWave />
+              <p>Easy EMI Option: <strong>{data.package.emi}</strong></p>
+            </div>
+
+            <button className="book-now-btn">
+              Book Your Beach Getaway
+            </button>
+          </div>
         </div>
       </div>
+
+      <div className="id-tag">
+        Destination ID: {data.id}
+      </div>
     </div>
-    </div>
-    // <div style={{ padding: '20px' }}>
-    //   <h1>{data.name}</h1>
-    //   <img src={data.image} alt={data.name} width="300" />
-    //   <p><b>City:</b> {data.city}</p>
-    //   <p><b>State:</b> {data.state}</p>
-    //   <p><b>Duration:</b> {data.package.duration}</p>
-    //   <p><b>Inclusions:</b></p>
-    //   <ul>
-    //     {data.package.inclusions.map((inc, i) => <li key={i}>{inc}</li>)}
-    //   </ul>
-    //   <p><b>EMI:</b> {data.package.emi}</p>
-    //   <p><b>Total Cost:</b> {data.package.totalCost}</p>
-    // </div>
   );
 }

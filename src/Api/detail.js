@@ -185,7 +185,7 @@ const place = [
   }
 ].map(item => ({
   ...item,
-  id: item.name.toLowerCase().replace(/\s+/g, '-')
+  id: item.name.toLowerCase().replace(/\s+/g, '-'),
+  isLiked: false // Add this line
 }));
-
 export default place;

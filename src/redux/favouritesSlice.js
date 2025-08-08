@@ -1,16 +1,17 @@
-// src/redux/favouritesSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const favouritesSlice = createSlice({
-  name: 'favourites',
+  name: "favourites",
   initialState: [],
   reducers: {
     toggleFavourite: (state, action) => {
-      const exists = state.find(item => item.id === action.payload.id);
-      if (exists) {
-        return state.filter(item => item.id !== action.payload.id);
-      } else {
-        state.push(action.payload);
+      const place = action.payload;  
+      const index = state.findIndex(item => item.id === place.id);
+
+      if (index >= 0) { 
+        state.splice(index, 1);
+      } else { 
+        state.push(place);
       }
     }
   }
