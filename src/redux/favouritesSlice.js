@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const favouritesSlice = createSlice({
   name: "favourites",
   initialState: [],
@@ -10,8 +11,10 @@ const favouritesSlice = createSlice({
 
       if (index >= 0) { 
         state.splice(index, 1);
+       
       } else { 
         state.push(place);
+        
       }
     }
   }

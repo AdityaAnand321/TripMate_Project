@@ -3,12 +3,30 @@ import { useParams } from 'react-router';
 import place from '../../Api/detail';
 import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaTags, FaStar, FaUmbrellaBeach, FaWater, FaFish, FaUtensils, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import './Details.css';
+import { toast } from 'react-toastify';
+import { useDispatch,useSelector } from 'react-redux';
+import Confirm from '../../Components/ConfirmBooking/confirm';
+import {add} from "../../../src/redux/Boooking";
+
 
 export default function Details() {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // const [btn,]
+
+  const [showModal, setShowModal] = useState(false);
+
+  const dispatch=useDispatch();
+  
+  const handleBooking = () => {
+    toast.success("Booked Successfully!");
+    setShowModal(false);
+    dispatch(add(data));
+  };
+
+
 
   useEffect(() => {
     try {
@@ -157,9 +175,18 @@ export default function Details() {
               <p>Easy EMI Option: <strong>{data.package.emi}</strong></p>
             </div>
 
-            <button className="book-now-btn">
-              Book Your Beach Getaway
-            </button>
+      <button className="book-now-btn" onClick={() => {setShowModal(true)}}>
+        Book Your Beach Getaway
+      </button>
+
+      {showModal && (
+        <Confirm
+          title="Confirm Booking"
+          message="Are you sure you want to book this trip?"
+          onConfirm={handleBooking}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
           </div>
         </div>
       </div>

@@ -28,6 +28,7 @@ const ROUTES = {
     path:'/details/:id',
     title:'/Details',
   },
+  
 };
 export {
   ROUTES,

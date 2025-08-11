@@ -9,6 +9,8 @@ import Favourite from "../Pages/Home/Favourite";
 import Setting from "../Pages/Home/Setting";
 import Dashboard from "../Pages/Home/Dashboard";
 import Details from "../Pages/Home/Details";
+import Booked from "../Pages/ShowBooking/show"
+
 const appRouter = createBrowserRouter([
   {
     path: ROUTES.HOMEPAGE.path,
@@ -16,11 +18,11 @@ const appRouter = createBrowserRouter([
     title: ROUTES.HOMEPAGE.title,
     children:[
       
-     { path: "dashboard", element: <Dashboard /> },
+      {path: "dashboard", element: <Dashboard /> },
       { path: "profile", element: <Profile /> },
       { path: "favourite", element: <Favourite /> },
       { path: "settings", element: <Setting /> },
-    
+      {path:"booked",element:<Booked/>},
     ],
   },
   {

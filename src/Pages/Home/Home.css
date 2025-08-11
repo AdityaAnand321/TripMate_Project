@@ -59,17 +59,7 @@ padding-top: 20px;
   background-color: #be1f1f;
 }
 
-.main-content1 {
-display: flex;
-flex-wrap:wrap;
-justify-content: space-around;
-margin-left: 200px;
-margin-top:5px;
-padding: 20px;
-gap:10px;
-z-index: 1;
-}
-
+ 
 .card1 {
   flex:0 0 48%;
   background-color: white;
@@ -183,4 +173,14 @@ z-index: 1;
   font-size: 20px;
   color: gray;
   cursor: pointer;
+}
+.main-content1 {
+display: flex;
+flex-wrap:wrap;
+justify-content: space-around;
+margin-left: 50px;
+margin-top:5px;
+padding: 20px;
+gap:10px;
+z-index: 1;
 }
