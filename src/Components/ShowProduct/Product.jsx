@@ -14,8 +14,6 @@ import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 
-
-
 const Product = ({items}) => { 
     const dispatch = useDispatch();
     const favourites = useSelector((state) => state.favourites);
@@ -24,8 +22,7 @@ const Product = ({items}) => {
       const handleLikeToggle = (e, placeData) => {
         e.stopPropagation();
         dispatch(toggleFavourite(placeData));  
-        toast.success("Added to favourites");
-        
+        toast.success("Added to favourites");  
       };
     
   return (
@@ -78,5 +75,6 @@ const Product = ({items}) => {
     </div>
   )
 }
-
 export default Product
+
+

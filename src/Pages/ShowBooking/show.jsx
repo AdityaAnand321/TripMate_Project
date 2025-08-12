@@ -1,22 +1,39 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import './show.css';
+import { useSelector,useDispatch } from 'react-redux';
+import { remove } from '../../redux/Boooking';
+
 
 const Show = () => {
   const bookings = useSelector(state => state.booking);
+  const dispatch=useDispatch();
 
   return (
-    <div>
-      <h2>Booked Places</h2>
+    <div className="main-content22">
+      <h2 className="heading">Booked Places</h2>
+
       {bookings.length === 0 ? (
-        <p>No bookings yet.</p>
+        <p className="empty-text">No bookings yet.</p>
+
       ) : (
-        bookings.map((place, index) => (
-          <div key={place.id || index}>
-            <h3>{place.name}</h3>
-            <p>{place.city}, {place.state}</p>
-            <img src={place.image} alt={place.name} width="200" />
-          </div>
-        ))
+        <div className="bookings-row">
+          {bookings.map((place, index) => (
+            <div className="booking-card" key={place.id || index}>
+              <img
+                src={place.image}
+                alt={place.name}
+                className="booking-image"
+              />
+              <div className="booking-info">
+                <h3 className="booking-title">{place.name}</h3>
+                <p className="booking-location">
+                  {place.city}, {place.state}
+                </p>
+                <button className="cancel-btn" onClick={()=>dispatch(remove(place.id))}>Cancel</button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

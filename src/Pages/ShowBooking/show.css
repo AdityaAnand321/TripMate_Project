@@ -1,0 +1,89 @@
+.main-content22 {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.empty-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  background-color: #f8f9fa;
+}
+
+/* Horizontal scroll row */
+.bookings-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.booking-card {
+  flex: 0 0 250px; /* fixed width */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+.booking-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.booking-info {
+  padding: 15px;
+}
+
+.booking-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #34495e;
+}
+
+.booking-location {
+  color: #7f8c8d;
+  margin: 5px 0 15px 0;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* For smooth scrollbars */
+.bookings-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.bookings-row::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 4px;
+}
+
+.bookings-row::-webkit-scrollbar-track {
+  background: transparent;
+}
