@@ -19,11 +19,17 @@ const Product = ({items}) => {
     const favourites = useSelector((state) => state.favourites);
     const navigate=useNavigate();
     
-      const handleLikeToggle = (e, placeData) => {
-        e.stopPropagation();
-        dispatch(toggleFavourite(placeData));  
-        toast.success("Added to favourites");  
-      };
+  const handleLikeToggle = (e, placeData) => {
+  e.stopPropagation();
+  const isLiked = favourites.some((fav) => fav.id === placeData.id);
+  dispatch(toggleFavourite(placeData));  
+  if (isLiked) {
+    toast.error("Removed from favourites");  
+  } else {
+    toast.success("Added to favourites");  
+  }
+};
+
     
   return (
     <div className='main-content1'>

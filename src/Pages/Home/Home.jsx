@@ -20,7 +20,7 @@ const filter = place.filter((item) =>
     <div>
       {/* Header */}
       <div className="header1">
-        <Link to="/dashboard">
+        <Link to="/dashboard" onClick={()=>setSearch("")}>
           <img src={logo} alt="" style={{ height: '50px' }} />
         </Link>
         <div className='headbtn'>
