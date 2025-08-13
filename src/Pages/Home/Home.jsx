@@ -6,10 +6,16 @@ import { Outlet } from 'react-router';
 import { useLocation } from 'react-router';
 import logo from '../../assets/icon/logo.jpeg';  
 import Product from '../../Components/ShowProduct/Product';
-
+import {useState} from 'react';
 export default function Home() {
   const user = JSON.parse(localStorage.getItem('user'));
   const location = useLocation(); 
+  const [search,setSearch]=useState("");
+
+const filter = place.filter((item) => 
+  item.id.toLowerCase().includes(search.toLowerCase())
+);
+
   return (
     <div>
       {/* Header */}
@@ -24,7 +30,14 @@ export default function Home() {
           <Link>Offers</Link>
           <Link to="/booked">Booking History</Link>
         </div>
-        <input type="search" style={{ padding: '5px', width: '300px' }} placeholder='Search for trips' />
+        
+          <input 
+          type="search" 
+          style={{ padding: '5px', width: '300px' }} 
+          placeholder='Search for trips' 
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
         <div className="auth-buttons1">
           {user && user.isLogged === "true" ? (
@@ -60,7 +73,7 @@ export default function Home() {
       <div className="main-content1">
         {location.pathname === '/' || location.pathname === '/home' || location.pathname === '/dashboard' ? (
           <>
-             <Product items={place}/>  
+             <Product items={filter} />
           </>
         ) : (
           <Outlet />
