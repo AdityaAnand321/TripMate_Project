@@ -180,12 +180,14 @@ export default function Details() {
       </button>
 
       {showModal && (
+        <div className='confirm'>
         <Confirm
           title="Confirm Booking"
           message="Are you sure you want to book this trip?"
           onConfirm={handleBooking}
           onCancel={() => setShowModal(false)}
         />
+        </div>
       )}
           </div>
         </div>

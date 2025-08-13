@@ -13,7 +13,10 @@ export default function Home() {
   const [search,setSearch]=useState("");
 
 const filter = place.filter((item) => 
-  item.id.toLowerCase().includes(search.toLowerCase())
+  item.id.toLowerCase().includes(search.toLowerCase()) ||
+  item.name.toLowerCase().includes(search.toLowerCase()) ||
+  item.state.toLowerCase().includes(search.toLowerCase()) ||
+  item.city.toLowerCase().includes(search.toLowerCase())
 );
 
   return (
