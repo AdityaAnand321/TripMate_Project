@@ -17,7 +17,10 @@ const place = [
       ],
       "emi": "₹8,333/month",
       "totalCost": "₹50,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 4,
+    "days": 3
   },
   {
     "id": "amber-fort",
@@ -36,7 +39,10 @@ const place = [
       ],
       "emi": "₹10,833/month",
       "totalCost": "₹65,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 5,
+    "days": 4
   },
   {
     "id": "palolem-beach",
@@ -55,7 +61,10 @@ const place = [
       ],
       "emi": "₹13,333/month",
       "totalCost": "₹80,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 3,
+    "days": 5
   },
   {
     "id": "alleppey-backwaters",
@@ -73,7 +82,10 @@ const place = [
       ],
       "emi": "₹11,667/month",
       "totalCost": "₹70,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 4,
+    "days": 4
   },
   {
     "id": "dashashwamedh-ghat",
@@ -91,7 +103,10 @@ const place = [
       ],
       "emi": "₹7,500/month",
       "totalCost": "₹45,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 5,
+    "days": 3
   },
   {
     "id": "pangong-lake",
@@ -109,7 +124,10 @@ const place = [
       ],
       "emi": "₹20,000/month",
       "totalCost": "₹1,20,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 4,
+    "days": 7
   },
   {
     "id": "mysore-palace",
@@ -127,7 +145,10 @@ const place = [
       ],
       "emi": "₹8,333/month",
       "totalCost": "₹50,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 3,
+    "days": 3
   },
   {
     "id": "radhanagar-beach",
@@ -145,7 +166,10 @@ const place = [
       ],
       "emi": "₹18,333/month",
       "totalCost": "₹1,10,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 5,
+    "days": 6
   },
   {
     "id": "the-ridge",
@@ -163,7 +187,10 @@ const place = [
       ],
       "emi": "₹10,000/month",
       "totalCost": "₹60,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 4,
+    "days": 4
   },
   {
     "id": "white-rann",
@@ -181,11 +208,11 @@ const place = [
       ],
       "emi": "₹9,167/month",
       "totalCost": "₹55,000"
-    }
+    },
+    "isLiked": false,
+    "stars": 3,
+    "days": 3
   }
-].map(item => ({
-  ...item,
-  id: item.name.toLowerCase().replace(/\s+/g, '-'),
-  isLiked: false // Add this line
-}));
+];
+
 export default place;
