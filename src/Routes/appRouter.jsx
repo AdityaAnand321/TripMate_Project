@@ -23,6 +23,7 @@ const appRouter = createBrowserRouter([
       { path: "favourite", element: <Favourite /> },
       { path: "settings", element: <Setting /> },
       {path:"booked",element:<Booked/>},
+      {path:"about",element:<About/>},
     ],
   },
   {

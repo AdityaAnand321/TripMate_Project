@@ -263,7 +263,7 @@ z-index: 1;
   position: relative;
   width: 90%;                     /* side se margin */
   height: 70vh;                   /* height fixed */
-  margin: 5px auto;              /* center with top-bottom margin */
+  margin: 15px auto;              /* center with top-bottom margin */
   border-radius: 20px;            /* rounded corners */
   overflow: hidden;               /* image corners cut ho */
   box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* halka shadow */
@@ -320,4 +320,53 @@ z-index: 1;
 .banner-text button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+.profile-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+  color: #0077ff;
+}
+
+.profile-icon {
+  font-size: 25px;
+  color: #333;
+}
+
+.profile-text {
+  margin-top: 3px;
+  font-size: 13px;
+  color: #333;
+  color: black;
+  font-weight: 500;
+    color:rgb(40, 44, 63);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  text-decoration: none;
+}
+
+.lastbtn{
+  display: flex;
+  justify-content: space-between;
+}
+
+a{
+  text-decoration: none;
+}
+
+.profile-button1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-top:5px;
+  padding: 2px;
 }

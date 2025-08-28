@@ -3,7 +3,7 @@ import React from 'react'
 const Setting = () => {
   return (
     <div>
-      <p>Setting </p>
+      <p style={{minHeight:'100vh'}}>Setting </p>
     </div>
   )
 }
