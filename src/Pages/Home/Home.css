@@ -370,3 +370,13 @@ a{
   margin-top:5px;
   padding: 2px;
 }
+
+.log{
+  position: relative; 
+  color: #f8fafc;              /* light text */
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+ 

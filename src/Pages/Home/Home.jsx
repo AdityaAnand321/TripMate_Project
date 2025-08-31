@@ -145,6 +145,7 @@ export default function Home() {
                   localStorage.setItem("user", JSON.stringify(user));
                   window.location.reload();
                 }}
+                
               >
                 Logout
               </button>
@@ -155,14 +156,12 @@ export default function Home() {
           ) : (
             <>
               <button>
-                <Link to={ROUTES.LOGIN.path}>Login</Link>
+                <Link to={ROUTES.LOGIN.path} className='log'>Login</Link>
               </button>
               <button>
-                <Link to={ROUTES.SIGNUP.path}>Signup</Link>
+                <Link to={ROUTES.SIGNUP.path} className='log'>Signup</Link>
               </button>
-              <button>
-                <Link to={ROUTES.ABOUT.path}>About Us</Link>
-              </button>
+             
             </>
           )}
         </div>
