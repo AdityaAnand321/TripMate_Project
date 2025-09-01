@@ -13,6 +13,7 @@ import 'rc-slider/assets/index.css';
 import banner from '../../assets/icon/banner.webp'; 
 import { MdOutlinePerson } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
+import { Heart,User,House,ShoppingCart } from 'lucide-react';
 
 
 export default function Home() {
@@ -96,12 +97,16 @@ export default function Home() {
         </Link>
 
         <div className='headbtn'>
-          <Link to="/about">About</Link>
-          <Link to="/favourite">Favourite</Link>
-          <Link to="/settings">Setting</Link>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link> 
+          <Link to="/settings">Contact Us</Link>
+
+          
+
+           
              
-          <Link>Offers</Link>
-          <Link to="/booked">Booking History</Link>
+          {/* <Link>Offers</Link> */}
+ 
         </div>
 
         <input
@@ -124,16 +129,32 @@ export default function Home() {
           <div className='lastbtn'>
 
 
+
+             <Link to="/booked">
+            <div className="profile-button">
+              <ShoppingCart className="profile-icon" />
+              <p className="profile-text">Bookings</p>
+            </div>
+          </Link>
+
+           <Link to="/favourite">
+            <div className="profile-button">
+              <Heart className="profile-icon" size={24}/>
+              <p className="profile-text">Favourites</p>
+            </div>
+          </Link>
           
             
           <Link to="/profile">
             <div className="profile-button">
-              <MdOutlinePerson className="profile-icon" />
+              <User className="profile-icon" />
               <p className="profile-text">Profile</p>
             </div>
           </Link>
 
-       
+         
+
+          
 
           
           

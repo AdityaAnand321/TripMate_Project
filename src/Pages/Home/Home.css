@@ -138,11 +138,11 @@ padding-top: 20px;
 }
 
 .headbtn{
-  width: 500px;
+  width: 400px;
   color:rgb(40, 44, 63);
   display: flex;
   font-size: 14px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-decoration: none;
 }
 
@@ -353,7 +353,8 @@ z-index: 1;
 
 .lastbtn{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap:20px;
 }
 
 a{

@@ -1,14 +1,4 @@
-/* 
-.main-content1 {
-display: flex;
-flex-wrap:wrap;
-justify-content: space-around;
-margin-left: 200px;
-margin-top:5px;
-padding: 20px;
-gap:10px;
-z-index: 1;
-} */
+
 
 .card1 {
   flex: 1;

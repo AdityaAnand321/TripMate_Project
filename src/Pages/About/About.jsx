@@ -1,8 +1,10 @@
 import './About.css'
 import abt from '../../assets/icon/abt.jpg';
 import { ImGift } from 'react-icons/im';
-import taj from '../../assets/taj.jpg'
-import trav from '../../assets/trav.jpeg'
+import taj from '../../assets/taj.jpg';
+import trav from '../../assets/trav.jpeg';
+import trav2 from '../../assets/trav2.jpeg';
+import { FaQuoteRight } from "react-icons/fa";
 
 import { FaMoneyBillWave, FaMapMarkedAlt, FaRegHandPeace, FaUserTie, FaRegClock } from "react-icons/fa";
 import { MdOutlineLibraryBooks } from "react-icons/md";
@@ -38,22 +40,13 @@ export default function About(){
       title: "Hand-picked Tour",
       desc: "Credibly target visionary portals rather than prospective human capital."
     },
-    {
-      icon: <FaUserTie size={36} />,
-      title: "Private Guide",
-      desc: "Credibly target visionary portals rather than prospective human capital."
-    },
-    {
-      icon: <FaRegClock size={36} />,
-      title: "Customer Care 24/7",
-      desc: "Credibly target visionary portals rather than prospective human capital."
-    }
+    
   ];
 
   return (
     <div>     <div className='abt-cont'>
       <div className='img-cont'>
-      <img src={taj} alt="" height='330px'/>
+      <img src={taj} alt="" height='330px' className='img-cont'/>
       </div>
 
       <div className="why-choose-us">
@@ -80,20 +73,63 @@ export default function About(){
  <section className="features-grid">
       {features.map((feature, index) => (
         <div className="feature-card" key={index}>
+          <div className="feature-icon">{feature.icon}</div>
           <h3 className="feature-title">{feature.title}</h3>
           <p className="feature-desc">{feature.desc}</p>
         </div>
       ))}
     </section>
 
-    <div>
-      <div>
-        <img src={trav} alt="" height='300px'/>
+    <div className='testi'>
+
+        <div>
+            <img src={trav} alt="" height='300px' className='img-cont'/>
+        </div>
+        <div>
+               <section className="testimonial">
+      <p className="section-subtitle">Testimonials</p>
+      <h2 className="section-title">What Travelers Say</h2>
+
+      <FaQuoteRight className="quote-icon" />
+
+      <p className="testimonial-text">
+        The UI designs he crafted are top-notch, and the design system he
+        integrated allows for straightforward fixes and bulk updates almost
+        every area the app.
+      </p>
+
+      <p className="testimonial-author">
+        – By Molie Rosa, <span>Photographer</span>
+      </p>
+    </section>
+        </div>
       </div>
-      <div>
-        testimonials
-      </div>
+
+      <div className='testi'>
+        <div>
+          <img src={trav2} alt="" height='300px' className='img-cont1'/>
+        </div>
+        <div>
+              <section className="testimonial">
+      <p className="section-subtitle">Testimonials</p>
+      <h2 className="section-title">What Travelers Say</h2>
+
+      <FaQuoteRight className="quote-icon" />
+
+      <p className="testimonial-text">
+        The UI designs he crafted are top-notch, and the design system he
+        integrated allows for straightforward fixes and bulk updates almost
+        every area the app.
+      </p>
+
+      <p className="testimonial-author">
+        – By Molie Rosa, <span>Photographer</span>
+      </p>
+    </section>
+        </div>
     </div>
+
+
 
      </div>
 
