@@ -28,6 +28,14 @@ const ROUTES = {
     path:'/details/:id',
     title:'/Details',
   },
+  CONTACT:{
+    path:'/contact',
+    title:'Contact',
+  },
+  PRODUCT:{
+      path:'/product',
+      title:'Product',
+  },
   
 };
 export {

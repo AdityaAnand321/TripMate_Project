@@ -99,12 +99,7 @@ export default function Home() {
         <div className='headbtn'>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link> 
-          <Link to="/settings">Contact Us</Link>
-
-          
-
-           
-             
+          <Link to="/contact">Contact Us</Link>
           {/* <Link>Offers</Link> */}
  
         </div>

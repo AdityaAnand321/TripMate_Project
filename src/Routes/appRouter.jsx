@@ -6,11 +6,11 @@ import Signup from "../Components/auth/Signup";
 import About from "../Pages/About/About";
 import Profile from "../Pages/Home/Profile";
 import Favourite from "../Pages/Home/Favourite";
-import Setting from "../Pages/Home/Setting";
+import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Pages/Home/Dashboard";
 import Details from "../Pages/Home/Details";
 import Booked from "../Pages/ShowBooking/show"
-
+import Product from "../Components/ShowProduct/Product"
 const appRouter = createBrowserRouter([
   {
     path: ROUTES.HOMEPAGE.path,
@@ -21,9 +21,10 @@ const appRouter = createBrowserRouter([
       {path: "dashboard", element: <Dashboard /> },
       { path: "profile", element: <Profile /> },
       { path: "favourite", element: <Favourite /> },
-      { path: "settings", element: <Setting /> },
+      { path: "contact", element: <Contact /> },
       {path:"booked",element:<Booked/>},
       {path:"about",element:<About/>},
+      {path:"product",element:<Product/>},
     ],
   },
   {
@@ -46,6 +47,17 @@ const appRouter = createBrowserRouter([
     element:<Details/>,
     title:ROUTES.DETAILS.title,
   },
+  {
+    path:ROUTES.CONTACT.path,
+    element:<Contact/>,
+    title:ROUTES.CONTACT.title,
+  },
+  {
+    path:ROUTES.PRODUCT.path,
+    element:<Product/>,
+    title:ROUTES.PRODUCT.title,
+  }
+
 ]);
 
 export default appRouter;
