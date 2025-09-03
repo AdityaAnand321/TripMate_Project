@@ -112,6 +112,8 @@ export default function Home() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
+        <p>This is extra text</p>
+
          
 
         <div className="auth-buttons1">
