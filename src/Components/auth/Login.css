@@ -1,92 +1,33 @@
-Reset
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Inter, system-ui, Arial, sans-serif; }
+
+.loginbody { min-height: 100vh; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #e0f2fe, #f1f5f9); }
+
+.container.auth-grid { width: 100%; max-width: 960px; display:grid; grid-template-columns: 1fr 1fr; border-radius: 16px; overflow: hidden; background:#fff; box-shadow: 0 24px 60px rgba(2,6,23,0.15); }
+
+.signin { padding: 36px 28px; display:flex; flex-direction:column; align-items:stretch; justify-content:center; gap: 8px; }
+.brand { display:flex; align-items:center; gap:10px; color:#0ea5e9; font-weight:800; font-size: 18px; }
+.title { color:#0f172a; margin-top: 6px; font-size: 26px; font-weight: 800; }
+.subtitle { color:#64748b; margin-bottom: 8px; }
+
+.auth-form { display:flex; flex-direction:column; gap: 10px; }
+.input-group { position:relative; display:flex; align-items:center; }
+.input-icon { position:absolute; left:12px; color:#94a3b8; display:flex; align-items:center; }
+.input-group input { width:100%; padding:12px 12px 12px 40px; background:#f1f5f9; border:1px solid #e2e8f0; border-radius:10px; outline:none; color:#0f172a; }
+.input-group input:focus { border-color:#0ea5e9; background:#fff; box-shadow:0 0 0 3px rgba(14,165,233,0.15); }
+.helper-link { color:#0ea5e9; font-size: 12px; text-decoration:none; }
+.helper-link:hover { text-decoration: underline; }
+.error-text { color:#ef4444; font-size: 13px; }
+.signin-btn { background: linear-gradient(90deg,#06b6d4,#3b82f6); color:#fff; border:none; padding:12px; border-radius:12px; cursor:pointer; font-weight:800; margin-top: 6px; }
+.signin-btn:hover { filter: brightness(1.05); }
+
+.signup.cta-pane { position:relative; background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop'); background-size:cover; background-position:center; }
+.cta-overlay { background: linear-gradient(180deg, rgba(2,6,23,0.25), rgba(2,6,23,0.65)); color:#fff; height:100%; width:100%; padding: 40px 28px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap: 10px; }
+.signup-btn { background: transparent; color:#fff; border:2px solid rgba(255,255,255,0.9); padding:10px 24px; border-radius:999px; cursor:pointer; font-weight:800; }
+.signup-btn:hover { background: rgba(255,255,255,0.1); }
+
+@media (max-width: 840px){
+  .container.auth-grid { grid-template-columns: 1fr; }
+  .signup.cta-pane { display:none; }
 }
 
-.loginbody {
-  background-color: rgb(247, 245, 245);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-} 
-
-.container {
-  max-width: 800px;
-  width: 100%;
-  display: flex;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
- }
-
-.signin,
-.signup {
-  flex: 1;
-  padding: 40px 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- }
-
-.signin h2,
-.signup h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.social-icons button {
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-}
-
-.signin input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  background: #f2f2f2;
-  border: none;
-  border-radius: 4px;
-}
-
-.signin a {
-  font-size: 12px;
-  color: #555;
-  margin-bottom: 20px;
-  text-decoration: none;
-}
-
-.signin-btn {
-  background-color: #f44336;
-  color: #fff;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.signup {
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
-  color: #fff;
-  text-align: center;
-}
-
-.signup-btn {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 10px 25px;
-  margin-top: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}

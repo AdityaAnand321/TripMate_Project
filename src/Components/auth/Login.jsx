@@ -2,8 +2,8 @@ import './Login.css';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import Dashboard from '../../Pages/Home/Dashboard';
-
-import { ToastContainer, toast } from 'react-toastify';
+import { FaEnvelope, FaLock, FaPlaneDeparture } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //import {Signup} from './Signup';
@@ -36,27 +36,42 @@ export default function Login(){
   };
   return( 
     <div className="loginbody">
-     <div className="container">
-    <div className="signin">
-      <form onSubmit={handleLogin}>
-      <h2>Sign In</h2>
-      <input type="text" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
-      <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-      <a href="#">Forgot Your Password</a> 
-    
-      {errorMsg && <p style={{color: 'red'}}>{errorMsg}</p>}
-      <button className="signin-btn" type="submit">SIGN IN</button>
-      </form>
-    </div>
-    <div className="signup">
-      <h2>Hello, Friend!</h2>
-      <p>Enter your details and start journey with us</p>
-      <button className="signup-btn" onClick={goToSignup}>SIGN UP</button>
-    </div>
-  </div>
-  </div>
+      <div className="container auth-grid">
+        {/* Left: Form */}
+        <div className="signin">
+          <div className="brand">
+            <FaPlaneDeparture />
+            <span>TripMate</span>
+          </div>
+          <h2 className="title">Welcome back</h2>
+          <p className="subtitle">Sign in to continue your journey</p>
+          <form onSubmit={handleLogin} className="auth-form">
+            <div className="input-group">
+              <span className="input-icon"><FaEnvelope /></span>
+              <input type="email" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+            </div>
+            <div className="input-group">
+              <span className="input-icon"><FaLock /></span>
+              <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+            </div>
+            {/* Forgot password removed as requested */}
+            {errorMsg && <p className="error-text">{errorMsg}</p>}
+            <button className="signin-btn" type="submit">Sign In</button>
+          </form>
+        </div>
 
+        {/* Right: Call to action */}
+        <div className="signup cta-pane">
+          <div className="cta-overlay">
+            <h2>Hello, Traveler!</h2>
+            <p>New here? Create an account and start planning your next getaway.</p>
+            <button className="signup-btn" onClick={goToSignup}>Create Account</button>
+          </div>
+        </div>
+      </div>
 
+      {/* Forgot password flow removed */}
+    </div>
   );
 
 }

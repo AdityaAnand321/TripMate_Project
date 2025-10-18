@@ -21,6 +21,19 @@
   margin-bottom: 10px;
 }
 
+.modal-title{ color:#111827; }
+.modal-message{ color:#374151; }
+
+.people-section{ margin: 12px 0 8px 0; text-align: left; }
+.people-label{ font-weight: 700; color:#111827; font-size: 14px; }
+.people-controls{ display:flex; align-items:center; gap:12px; margin: 8px 0; }
+.qty-btn{ width:32px; height:32px; border-radius:8px; border:1px solid #e5e7eb; background:#f9fafb; cursor:pointer; font-size:18px; }
+.people-count{ min-width: 24px; text-align:center; font-weight:700; color:#000; font-size:16px; }
+.qty-btn{ color:#111827; }
+.price-summary{ border-top:1px solid #e5e7eb; margin-top:8px; padding-top:8px; }
+.price-summary .row{ display:flex; justify-content:space-between; margin:4px 0; color:#374151; }
+.price-summary .total{ color:#111827; }
+
 .modal-buttons {
   display: flex;
   justify-content: space-around;

@@ -20,18 +20,25 @@ const Product = ({items}) => {
     const navigate=useNavigate();
     
   const handleLikeToggle = (e, placeData) => {
-  e.stopPropagation();
+    e.stopPropagation();
 
-  const isLiked = favourites.some((fav) => fav.id === placeData.id);
-  dispatch(toggleFavourite(placeData));  
+    // Require login for adding/removing favourites
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || user.isLogged !== 'true') {
+      toast.error('Please login to manage favourites');
+      navigate('/login');
+      return;
+    }
 
-  
-  if (isLiked) {
-    toast.error("Removed from favourites");  
-  } else {
-    toast.success("Added to favourites");  
-  }
-};
+    const isLiked = favourites.some((fav) => fav.id === placeData.id);
+    dispatch(toggleFavourite(placeData));  
+
+    if (isLiked) {
+      toast.error('Removed from favourites');  
+    } else {
+      toast.success('Added to favourites');  
+    }
+  };
 
     
 return (

@@ -1,8 +1,9 @@
 import './Signup.css';
 import { useNavigate } from 'react-router';
 import {useState} from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaUser, FaEnvelope, FaLock, FaGlobeAsia } from 'react-icons/fa';
 
 export default function Signup(){
 
@@ -32,23 +33,37 @@ const handleSignup=(e)=>{
 }
   
   return( 
-  <div id="body1">
-    <div className="signup-container">
-      <div className="left-panel">
-        <h2>Welcome Back!</h2>
-        <p>To keep connected with us, please login with your personal info</p>
-        <button className="ghost" onClick={goToLogin}>Sign In</button>
-      </div>
-      <div className="right-panel">
-        <form onSubmit={handleSignup}>
-          <h2>Create Account</h2> 
-          <input type="text" placeholder="Name" value={name} onChange={(e)=>setName(e.target.value)} required/>
-          <input type="email" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
-          <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-          <button className="form-button" type="submit">Sign Up</button>
-        </form>
+    <div id="body1" className="signup-body">
+      <div className="signup-container grid">
+        {/* Left CTA */}
+        <div className="left-panel cta">
+          <div className="overlay">
+            <h2><FaGlobeAsia /> Join TripMate</h2>
+            <p>Plan epic trips, track bookings, and uncover hidden gems around the world.</p>
+            <button className="ghost" onClick={goToLogin}>I already have an account</button>
+          </div>
+        </div>
+
+        {/* Right form */}
+        <div className="right-panel">
+          <form onSubmit={handleSignup} className="signup-form">
+            <h2>Create your account</h2> 
+            <div className="input-group">
+              <span className="input-icon"><FaUser /></span>
+              <input type="text" placeholder="Full name" value={name} onChange={(e)=>setName(e.target.value)} required/>
+            </div>
+            <div className="input-group">
+              <span className="input-icon"><FaEnvelope /></span>
+              <input type="email" placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+            </div>
+            <div className="input-group">
+              <span className="input-icon"><FaLock /></span>
+              <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+            </div>
+            <button className="form-button" type="submit">Sign Up</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   );
 }

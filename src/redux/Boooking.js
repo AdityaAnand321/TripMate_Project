@@ -14,7 +14,9 @@ const bookingSlice=createSlice({
         remove:(state,action)=>{
             const id=action.payload;
             const index=state.findIndex(item=>item.id===id);
-            state.splice(index, 1);
+            if (index !== -1) {
+                state.splice(index, 1);
+            }
         }
 
          
