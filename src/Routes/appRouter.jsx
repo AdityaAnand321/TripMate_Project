@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Home/Dashboard";
 import Details from "../Pages/Home/Details";
 import Booked from "../Pages/ShowBooking/show"
 import Product from "../Components/ShowProduct/Product"
+import ScrollToTopWrapper from "./ScrollToTop";
 const appRouter = createBrowserRouter([
   {
     path: ROUTES.HOMEPAGE.path,

@@ -34,6 +34,11 @@ export default function Home() {
     }
   }, [location.pathname]);
 
+  // Ensure we start at top on navigation
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname]);
+
   // Handle star checkbox filter
   const handleStarChange = (star) => {
     if (selectedStars.includes(star)) {
