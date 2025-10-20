@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 import { useLocation } from 'react-router';
 import Product from '../../Components/ShowProduct/Product';
 import Footer from '../../Components/layout/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import banner from '../../assets/icon/banner.webp'; 
@@ -26,6 +26,7 @@ export default function Home() {
   const [selectedStars, setSelectedStars] = useState([]);
   const [selectedDays, setSelectedDays] = useState(null);
   const [sortOrder, setSortOrder] = useState("");
+  const discoverRef = useRef(null);
 
   // ✅ Reset search if not on Home
   useEffect(() => {
@@ -108,12 +109,20 @@ export default function Home() {
             <img src={banner} alt="Travel Banner" />
             <div className="banner-text">
               <h1>Explore The World With Us 🌍</h1>
-              <p>Find your perfect holiday package at the best price</p>
+              <p>Find your perfect holiday package at the best price</p> 
               <button
                 onClick={() => {
-                  const section = document.getElementById("discover-section");
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
+                  const el = discoverRef.current || document.getElementById('discover-section');
+                  if (!el) return;
+                  try {
+                    // Works with CSS scroll-margin-top to avoid sticky header overlap
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } catch {
+                    // Fallback
+                    const header = document.querySelector('.header1');
+                    const headerH = header ? header.offsetHeight : 90;
+                    const y = el.getBoundingClientRect().top + window.pageYOffset - headerH;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
               >
@@ -123,7 +132,7 @@ export default function Home() {
           </div>
 
           {/* Main content */}
-          <div className='arrange' id="discover-section">
+          <div className='arrange' id="discover-section" ref={discoverRef} style={{ scrollMarginTop: '90px' }}>
             {/* Filter Panel */}
             <div className='filter'>
               {/* Price Filter */}

@@ -3,6 +3,7 @@ import cont from "../../assets/cont.jpg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Setting = () => {
   const [formData, setFormData] = useState({
@@ -24,66 +25,72 @@ const Setting = () => {
 
   return (
     <div>
-      {/* Contact Image */}
-      <div>
-        <img src={cont} alt="Contact" className="c-img" />
+      {/* Hero Banner */}
+      <div className="contact-hero">
+        <img src={cont} alt="Get in touch" />
+        <div className="contact-hero-text">
+          <h1>Contact Us</h1>
+          <p>We'd love to hear from you. Let's plan your next trip.</p>
+        </div>
       </div>
 
-      {/* Contact Info */}
-      <div className="contact-container">
-        <div className="contact-item">
-          <span className="icon">📍</span>
-          <h3 className="title">Location</h3>
-          <p className="text">Chandigarh, India</p>
+      {/* Info Cards */}
+      <div className="contact-info-grid">
+        <div className="contact-item-card">
+          <FaMapMarkerAlt className="card-icon" />
+          <h3 className="card-title">Location</h3>
+          <p className="card-text">Chandigarh, India</p>
         </div>
 
-        <div className="contact-item">
-          <span className="icon">📞</span>
-          <h3 className="title">Phone</h3>
-          <p className="text">987654321</p>
+        <div className="contact-item-card">
+          <FaPhoneAlt className="card-icon" />
+          <h3 className="card-title">Phone</h3>
+          <p className="card-text">+91 98765 43210</p>
         </div>
 
-        <div className="contact-item">
-          <span className="icon">✉️</span>
-          <h3 className="title">Email</h3>
-          <p className="text">support@trisog.com</p>
+        <div className="contact-item-card">
+          <FaEnvelope className="card-icon" />
+          <h3 className="card-title">Email</h3>
+          <p className="card-text">support@trimpmate.com</p>
         </div>
       </div>
 
       {/* Contact Form */}
-      <section className="contact">
-        <h3 className="subtitle">Have any question?</h3>
-        <h1 className="title">Get in Touch</h1>
+      <section className="contact-section">
+        <div className="contact-form-card">
+          <h3 className="contact-subtitle">Have any question?</h3>
+          <h1 className="contact-title">Get in Touch</h1>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="input-row">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              value={formData.name}
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="input-row">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <textarea
+              name="message"
+              placeholder="Write something..."
+              rows="6"
+              value={formData.message}
               onChange={handleChange}
               required
             />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Write something"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" className="btn">Submit</button>
-        </form>
+            <button type="submit" className="btn">Submit</button>
+          </form>
+        </div>
       </section>
     </div>
   );

@@ -153,6 +153,84 @@ padding-top: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header search */
+.header-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc; /* slate-50 */
+  border: 1px solid #e2e8f0; /* slate-200 */
+  border-radius: 9999px; /* pill */
+  padding: 10px 14px;
+  width: min(520px, 36vw);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.header-search:hover { box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+.header-search:focus-within {
+  background: #ffffff;
+  border-color: #93c5fd; /* blue-300 */
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.18), 0 12px 28px rgba(0,0,0,0.10);
+}
+
+.search-icon { color: #64748b; /* slate-500 */ }
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #0f172a; /* slate-900 */
+}
+
+.search-input::placeholder { color: #94a3b8; /* slate-400 */ }
+
+/* Hide native browser clear/cancel icons for search inputs (we use our own clear button) */
+.search-input::-webkit-search-decoration,
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-results-button,
+.search-input::-webkit-search-results-decoration {
+  display: none;
+}
+.search-input::-ms-clear,
+.search-input::-ms-reveal {
+  display: none; width: 0; height: 0;
+}
+
+/* Normalize appearance so no built-in buttons leak through */
+.search-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.clear-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0; /* slate-200 */
+  background: #ffffff;
+  color: #475569; /* slate-600 */
+  cursor: pointer;
+}
+
+.clear-btn:hover { background: #f1f5f9; /* slate-100 */ }
+
+@media (max-width: 768px) {
+  .header-search {
+    width: 62vw;
+    padding: 8px 12px;
+  }
+  .search-input {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   .auth-buttons1 {
     flex-direction: column;
@@ -282,7 +360,9 @@ z-index: 1;
   left: 0;
   width: 100%;
   height: 100%;
-       /* halka dim overlay */
+  /* halka dim overlay */
+  pointer-events: none; /* don't block clicks on button/text */
+  z-index: 1;
 }
 
 .banner-text {
@@ -293,6 +373,7 @@ z-index: 1;
   text-align: center;
   color: white;
   padding: 0 20px;
+  z-index: 2; /* keep above overlay */
 }
 
 .banner-text h1 {
@@ -379,5 +460,28 @@ a{
   text-decoration: none;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
+}
+
+/* Favourites badge on header icon */
+.icon-with-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.fav-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: #ef4444; /* red-500 */
+  color: #fff;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+  box-shadow: 0 0 0 2px #fff; /* ring to separate from background */
 }
  

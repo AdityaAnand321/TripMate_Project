@@ -25,7 +25,7 @@ const Footer = () => {
             <h3>Support</h3>
             <p>Vaishali 844101, Bihar, India</p>
             <p>
-              Email: <a href="mailto:adityaanand0950@gmail.com">abhishekanand7091@gmail.com</a>
+              Email: <a href="mailto:adityaanand0950@gmail.com">adityaanand0950@gmail.com</a>
             </p>
             <p>Phone: 100</p>
           </div>

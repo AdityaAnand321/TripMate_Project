@@ -10,3 +10,27 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Deployment (Netlify)
+
+This is a Single Page Application using React Router. To prevent 404s on refresh or direct-linking to client routes on Netlify, a redirect rule is included.
+
+Already added in this repo:
+- `public/_redirects` with the line: `/* /index.html 200`
+
+How to deploy:
+- Build: `npm run build`
+- Netlify publish directory: `dist`
+- Netlify will copy the `_redirects` file into the deploy, so browser refresh on any route will serve `index.html` and let the client router handle it.
+
+Alternative: Instead of `public/_redirects`, you can use a `netlify.toml` with:
+
+```
+[build]
+	publish = "dist"
+
+[[redirects]]
+	from = "/*"
+	to = "/index.html"
+	status = 200
+```
